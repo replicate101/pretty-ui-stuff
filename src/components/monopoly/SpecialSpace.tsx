@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type SpecialSpaceProps = {
   type: 'go' | 'jail' | 'parking' | 'go-to-jail' | 'chance' | 'community-chest' | 'tax' | 'railroad' | 'utility';
@@ -17,6 +18,8 @@ const SpecialSpace: React.FC<SpecialSpaceProps> = ({
   orientation = 'bottom',
   className
 }) => {
+  const isMobile = useIsMobile();
+  
   // Different backgrounds based on type
   const getBgClass = () => {
     switch (type) {
@@ -52,7 +55,7 @@ const SpecialSpace: React.FC<SpecialSpaceProps> = ({
       case 'utility':
         return type === 'utility' ? <div className="font-bold">💡</div> : <div className="font-bold">🚿</div>;
       case 'go':
-        return <div className="font-bold text-red-600 transform rotate-45">GO</div>;
+        return <div className="font-bold text-red-600">GO</div>;
       case 'jail':
         return <div className="font-bold">JAIL</div>;
       case 'parking':
@@ -66,12 +69,15 @@ const SpecialSpace: React.FC<SpecialSpaceProps> = ({
     }
   };
 
+  // Calculate text size based on mobile view
+  const textSizeClass = isMobile ? 'text-[0.45rem] leading-[0.5rem]' : 'text-xxs';
+
   return (
     <div className={cn("border border-black overflow-hidden flex flex-col justify-center items-center", getBgClass(), className)}>
       <div className="flex flex-col items-center justify-center text-center p-1 h-full w-full">
         <div className="mb-1">{getIcon()}</div>
-        <div className="text-xxs font-bold">{name}</div>
-        {price && <div className="text-xxs mt-1">{price}</div>}
+        <div className={cn("font-bold", textSizeClass)}>{name}</div>
+        {price && <div className={textSizeClass}>{price}</div>}
       </div>
     </div>
   );

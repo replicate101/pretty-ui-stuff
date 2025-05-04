@@ -2,20 +2,23 @@
 import React from 'react';
 import PropertySpace from './PropertySpace';
 import SpecialSpace from './SpecialSpace';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const MonopolyBoard = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <div className="relative w-full max-w-3xl aspect-square bg-monopoly-board border-4 border-black">
       {/* Center logo */}
-      <div className="absolute inset-20 flex items-center justify-center transform rotate-45">
-        <div className="transform -rotate-45 bg-red-600 text-white py-8 px-28 rounded-sm">
-          <h1 className="font-bold text-4xl md:text-5xl tracking-wide uppercase">Monopoly</h1>
+      <div className="absolute inset-20 flex items-center justify-center">
+        <div className="bg-red-600 text-white py-6 px-16 md:py-8 md:px-28 rounded-sm">
+          <h1 className="font-bold text-2xl md:text-4xl lg:text-5xl tracking-wide uppercase">Monopoly</h1>
         </div>
       </div>
 
       {/* Community Chest Cards and Chance Cards icons */}
-      <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-32 h-24 bg-blue-100 rotate-45 border border-dotted border-black"></div>
-      <div className="absolute bottom-1/3 right-1/3 transform translate-x-1/2 translate-y-1/2 w-32 h-24 bg-orange-300 rotate-45 border border-dotted border-black"></div>
+      <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-20 md:w-32 h-16 md:h-24 bg-blue-100 border border-dotted border-black"></div>
+      <div className="absolute bottom-1/3 right-1/3 transform translate-x-1/2 translate-y-1/2 w-20 md:w-32 h-16 md:h-24 bg-orange-300 border border-dotted border-black"></div>
 
       {/* Board grid layout */}
       <div className="absolute inset-0 grid grid-cols-11 grid-rows-11">
