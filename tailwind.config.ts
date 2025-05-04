@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Monopoly specific colors
+				'monopoly-board': '#C5E8C0', // Light green board background
+				'monopoly-brown': '#955436', // Brown properties
+                'monopoly-light-blue': '#AAE0FA', // Light Blue properties
+                'monopoly-pink': '#D93A96', // Pink properties
+                'monopoly-orange': '#F7941D', // Orange properties
+                'monopoly-red': '#ED1B24', // Red properties
+                'monopoly-yellow': '#FEF200', // Yellow properties
+                'monopoly-green': '#1FB25A', // Green properties
+                'monopoly-blue': '#0072BB', // Blue properties
+				'monopoly-railroad': '#0C0C0C', // Railroad black
+				'monopoly-utility': '#C8C8C8', // Utility gray
+				'monopoly-chance': '#D13ADF', // Chance card color
+				'monopoly-community-chest': '#F7941D', // Community chest color
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,19 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Extra small text size for property cards */
+.text-xxs {
+  font-size: 0.65rem;
+  line-height: 0.75rem;
+}
+
+/* Custom styles for the Monopoly board */
+@media (max-width: 640px) {
+  .text-xxs {
+    font-size: 0.5rem;
+    line-height: 0.6rem;
   }
 }
