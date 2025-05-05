@@ -35,30 +35,39 @@ const PropertySpace: React.FC<PropertySpaceProps> = ({
 
   // Position color band based on orientation
   const getOrientationStyles = () => {
+    // Mobile has smaller bands
+    const bandSize = isMobile ? {
+      vertical: 'h-2',
+      horizontal: 'w-2'
+    } : {
+      vertical: 'h-4',
+      horizontal: 'w-4'
+    };
+    
     switch(orientation) {
       case 'top':
         return {
-          colorBar: "h-4 w-full",
+          colorBar: `${bandSize.vertical} w-full`,
           content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
       case 'right':
         return {
-          colorBar: "w-4 h-full absolute right-0",
-          content: "flex flex-col justify-between items-center pr-5 flex-grow p-1 text-center",
+          colorBar: `${bandSize.horizontal} h-full absolute right-0`,
+          content: `flex flex-col justify-between items-center pr-${isMobile ? '3' : '5'} flex-grow p-1 text-center`,
         };
       case 'bottom':
         return {
-          colorBar: "h-4 w-full absolute bottom-0",
-          content: "flex flex-col justify-between items-center pb-5 flex-grow p-1 text-center",
+          colorBar: `${bandSize.vertical} w-full absolute bottom-0`,
+          content: `flex flex-col justify-between items-center pb-${isMobile ? '3' : '5'} flex-grow p-1 text-center`,
         };
       case 'left':
         return {
-          colorBar: "w-4 h-full absolute left-0",
-          content: "flex flex-col justify-between items-center pl-5 flex-grow p-1 text-center",
+          colorBar: `${bandSize.horizontal} h-full absolute left-0`,
+          content: `flex flex-col justify-between items-center pl-${isMobile ? '3' : '5'} flex-grow p-1 text-center`,
         };
       default:
         return {
-          colorBar: "h-4 w-full",
+          colorBar: `${bandSize.vertical} w-full`,
           content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
     }
