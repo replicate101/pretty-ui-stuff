@@ -66,8 +66,8 @@ const PropertySpace: React.FC<PropertySpaceProps> = ({
 
   const styles = getOrientationStyles();
   
-  // Improved text size for better readability, especially on mobile
-  const textSizeClass = isMobile ? 'text-[0.65rem] leading-[0.8rem]' : 'text-xs';
+  // Improved text size for better readability
+  const textSizeClass = isMobile ? 'text-[0.7rem] leading-tight' : 'text-xs';
 
   return (
     <div className={cn("border border-black bg-white overflow-hidden", className)}>
