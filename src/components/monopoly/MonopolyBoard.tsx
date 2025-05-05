@@ -16,10 +16,6 @@ const MonopolyBoard = () => {
         </div>
       </div>
 
-      {/* Community Chest Cards and Chance Cards icons */}
-      <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-20 md:w-32 h-16 md:h-24 bg-blue-100 border border-dotted border-black"></div>
-      <div className="absolute bottom-1/3 right-1/3 transform translate-x-1/2 translate-y-1/2 w-20 md:w-32 h-16 md:h-24 bg-orange-300 border border-dotted border-black"></div>
-
       {/* Board grid layout */}
       <div className="absolute inset-0 grid grid-cols-11 grid-rows-11">
         {/* Corners */}

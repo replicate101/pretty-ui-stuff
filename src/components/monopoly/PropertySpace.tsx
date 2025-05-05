@@ -33,48 +33,48 @@ const PropertySpace: React.FC<PropertySpaceProps> = ({
 
   const colorClass = colorMap[colorGroup] || 'bg-gray-200';
 
-  // Always place color band at top regardless of orientation
+  // Position color band based on orientation
   const getOrientationStyles = () => {
     switch(orientation) {
       case 'top':
         return {
           colorBar: "h-5 w-full",
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center"
+          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
       case 'right':
         return {
           colorBar: "h-5 w-full",
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center"
+          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
       case 'bottom':
         return {
-          colorBar: "h-5 w-full",
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center"
+          colorBar: "h-5 w-full", 
+          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
       case 'left':
         return {
-          colorBar: "h-5 w-full", 
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center"
+          colorBar: "h-5 w-full",
+          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
       default:
         return {
           colorBar: "h-5 w-full",
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center"
+          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
     }
   };
 
   const styles = getOrientationStyles();
   
-  // Calculate text size based on mobile view
-  const textSizeClass = isMobile ? 'text-[0.45rem] leading-[0.5rem]' : 'text-xxs';
+  // Improved text size for better readability, especially on mobile
+  const textSizeClass = isMobile ? 'text-[0.65rem] leading-[0.8rem]' : 'text-xs';
 
   return (
     <div className={cn("border border-black bg-white overflow-hidden", className)}>
       <div className="flex flex-col h-full">
         <div className={cn(colorClass, styles.colorBar)}></div>
         <div className={styles.content}>
-          <div className={cn("font-bold leading-tight", textSizeClass)}>{name}</div>
+          <div className={cn("font-bold break-words", textSizeClass)}>{name}</div>
           {price && <div className={textSizeClass}>{price}</div>}
         </div>
       </div>
