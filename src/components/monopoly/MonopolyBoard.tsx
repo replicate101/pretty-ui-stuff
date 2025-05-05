@@ -9,50 +9,52 @@ const MonopolyBoard = () => {
   
   return (
     <div className="relative w-full max-w-3xl aspect-square bg-monopoly-board border-4 border-black">
-      {/* Center logo */}
-      <div className="absolute inset-20 flex items-center justify-center">
-        <div className="bg-red-600 text-white py-6 px-16 md:py-8 md:px-28 rounded-sm">
-          <h1 className="font-bold text-2xl md:text-4xl lg:text-5xl tracking-wide uppercase">Monopoly</h1>
+      {/* Center logo - hide on mobile for more space */}
+      {!isMobile && (
+        <div className="absolute inset-20 flex items-center justify-center">
+          <div className="bg-red-600 text-white py-6 px-16 md:py-8 md:px-28 rounded-sm">
+            <h1 className="font-bold text-2xl md:text-4xl lg:text-5xl tracking-wide uppercase">Monopoly</h1>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Board grid layout */}
       {isMobile ? (
         /* Simplified mobile board layout with fewer spaces */
-        <div className="absolute inset-0 grid grid-cols-7 grid-rows-7">
+        <div className="absolute inset-0 grid grid-cols-7 grid-rows-7 gap-[1px]">
           {/* Corners */}
-          <SpecialSpace type="go" name="GO" className="col-start-7 col-span-1 row-start-7 row-span-1" />
-          <SpecialSpace type="jail" name="JAIL" className="col-start-1 col-span-1 row-start-7 row-span-1" />
-          <SpecialSpace type="parking" name="FREE PARKING" className="col-start-1 col-span-1 row-start-1 row-span-1" />
-          <SpecialSpace type="go-to-jail" name="GO TO JAIL" className="col-start-7 col-span-1 row-start-1 row-span-1" />
+          <SpecialSpace type="go" name="GO" className="col-start-7 col-span-1 row-start-7 row-span-1 h-full w-full" />
+          <SpecialSpace type="jail" name="JAIL" className="col-start-1 col-span-1 row-start-7 row-span-1 h-full w-full" />
+          <SpecialSpace type="parking" name="FREE PARKING" className="col-start-1 col-span-1 row-start-1 row-span-1 h-full w-full" />
+          <SpecialSpace type="go-to-jail" name="GO TO JAIL" className="col-start-7 col-span-1 row-start-1 row-span-1 h-full w-full" />
 
           {/* Bottom row - properties and other spaces */}
-          <PropertySpace name="Mediterranean Ave" colorGroup="brown" price="$60" className="col-start-6 col-span-1 row-start-7 row-span-1" />
-          <PropertySpace name="Baltic Ave" colorGroup="brown" price="$60" className="col-start-5 col-span-1 row-start-7 row-span-1" />
-          <SpecialSpace type="tax" name="Income Tax" price="$200" className="col-start-4 col-span-1 row-start-7 row-span-1" />
-          <SpecialSpace type="railroad" name="Railroad" price="$200" className="col-start-3 col-span-1 row-start-7 row-span-1" />
-          <PropertySpace name="Connecticut Ave" colorGroup="lightBlue" price="$120" className="col-start-2 col-span-1 row-start-7 row-span-1" />
+          <PropertySpace name="Medit. Ave" colorGroup="brown" price="$60" className="col-start-6 col-span-1 row-start-7 row-span-1 h-full w-full" />
+          <PropertySpace name="Baltic Ave" colorGroup="brown" price="$60" className="col-start-5 col-span-1 row-start-7 row-span-1 h-full w-full" />
+          <SpecialSpace type="tax" name="Tax" price="$200" className="col-start-4 col-span-1 row-start-7 row-span-1 h-full w-full" />
+          <SpecialSpace type="railroad" name="RR" price="$200" className="col-start-3 col-span-1 row-start-7 row-span-1 h-full w-full" />
+          <PropertySpace name="Conn. Ave" colorGroup="lightBlue" price="$120" className="col-start-2 col-span-1 row-start-7 row-span-1 h-full w-full" />
 
           {/* Left column - properties and other spaces */}
-          <PropertySpace name="St. Charles" colorGroup="pink" price="$140" orientation="left" className="col-start-1 col-span-1 row-start-6 row-span-1" />
-          <SpecialSpace type="utility" name="Electric Company" price="$150" className="col-start-1 col-span-1 row-start-5 row-span-1" />
-          <PropertySpace name="Virginia Ave" colorGroup="pink" price="$160" orientation="left" className="col-start-1 col-span-1 row-start-4 row-span-1" />
-          <SpecialSpace type="railroad" name="Railroad" price="$200" className="col-start-1 col-span-1 row-start-3 row-span-1" />
-          <PropertySpace name="Tennessee Ave" colorGroup="orange" price="$180" orientation="left" className="col-start-1 col-span-1 row-start-2 row-span-1" />
+          <PropertySpace name="St. Charles" colorGroup="pink" price="$140" orientation="left" className="col-start-1 col-span-1 row-start-6 row-span-1 h-full w-full" />
+          <SpecialSpace type="utility" name="Electric" price="$150" className="col-start-1 col-span-1 row-start-5 row-span-1 h-full w-full" />
+          <PropertySpace name="Virginia" colorGroup="pink" price="$160" orientation="left" className="col-start-1 col-span-1 row-start-4 row-span-1 h-full w-full" />
+          <SpecialSpace type="railroad" name="RR" price="$200" className="col-start-1 col-span-1 row-start-3 row-span-1 h-full w-full" />
+          <PropertySpace name="Tennessee" colorGroup="orange" price="$180" orientation="left" className="col-start-1 col-span-1 row-start-2 row-span-1 h-full w-full" />
 
           {/* Top row - properties and other spaces */}
-          <PropertySpace name="Kentucky Ave" colorGroup="red" price="$220" orientation="top" className="col-start-2 col-span-1 row-start-1 row-span-1" />
-          <SpecialSpace type="chance" name="Chance" className="col-start-3 col-span-1 row-start-1 row-span-1" />
-          <PropertySpace name="Indiana Ave" colorGroup="red" price="$220" orientation="top" className="col-start-4 col-span-1 row-start-1 row-span-1" />
-          <PropertySpace name="Illinois Ave" colorGroup="red" price="$240" orientation="top" className="col-start-5 col-span-1 row-start-1 row-span-1" />
-          <SpecialSpace type="railroad" name="Railroad" price="$200" className="col-start-6 col-span-1 row-start-1 row-span-1" />
+          <PropertySpace name="Kentucky" colorGroup="red" price="$220" orientation="top" className="col-start-2 col-span-1 row-start-1 row-span-1 h-full w-full" />
+          <SpecialSpace type="chance" name="?" className="col-start-3 col-span-1 row-start-1 row-span-1 h-full w-full" />
+          <PropertySpace name="Indiana" colorGroup="red" price="$220" orientation="top" className="col-start-4 col-span-1 row-start-1 row-span-1 h-full w-full" />
+          <PropertySpace name="Illinois" colorGroup="red" price="$240" orientation="top" className="col-start-5 col-span-1 row-start-1 row-span-1 h-full w-full" />
+          <SpecialSpace type="railroad" name="RR" price="$200" className="col-start-6 col-span-1 row-start-1 row-span-1 h-full w-full" />
 
           {/* Right column - properties and other spaces */}
-          <PropertySpace name="Pacific Ave" colorGroup="green" price="$300" orientation="right" className="col-start-7 col-span-1 row-start-2 row-span-1" />
-          <PropertySpace name="NC Avenue" colorGroup="green" price="$300" orientation="right" className="col-start-7 col-span-1 row-start-3 row-span-1" />
-          <SpecialSpace type="community-chest" name="Community Chest" className="col-start-7 col-span-1 row-start-4 row-span-1" />
-          <PropertySpace name="Park Place" colorGroup="blue" price="$350" orientation="right" className="col-start-7 col-span-1 row-start-5 row-span-1" />
-          <PropertySpace name="Boardwalk" colorGroup="blue" price="$400" orientation="right" className="col-start-7 col-span-1 row-start-6 row-span-1" />
+          <PropertySpace name="Pacific" colorGroup="green" price="$300" orientation="right" className="col-start-7 col-span-1 row-start-2 row-span-1 h-full w-full" />
+          <PropertySpace name="NC Ave" colorGroup="green" price="$300" orientation="right" className="col-start-7 col-span-1 row-start-3 row-span-1 h-full w-full" />
+          <SpecialSpace type="community-chest" name="CC" className="col-start-7 col-span-1 row-start-4 row-span-1 h-full w-full" />
+          <PropertySpace name="Park Place" colorGroup="blue" price="$350" orientation="right" className="col-start-7 col-span-1 row-start-5 row-span-1 h-full w-full" />
+          <PropertySpace name="Boardwalk" colorGroup="blue" price="$400" orientation="right" className="col-start-7 col-span-1 row-start-6 row-span-1 h-full w-full" />
         </div>
       ) : (
         /* Original full desktop board layout */

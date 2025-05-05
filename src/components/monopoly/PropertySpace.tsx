@@ -38,27 +38,27 @@ const PropertySpace: React.FC<PropertySpaceProps> = ({
     switch(orientation) {
       case 'top':
         return {
-          colorBar: "h-5 w-full",
+          colorBar: "h-4 w-full",
           content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
       case 'right':
         return {
-          colorBar: "h-5 w-full",
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
+          colorBar: "w-4 h-full absolute right-0",
+          content: "flex flex-col justify-between items-center pr-5 flex-grow p-1 text-center",
         };
       case 'bottom':
         return {
-          colorBar: "h-5 w-full", 
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
+          colorBar: "h-4 w-full absolute bottom-0",
+          content: "flex flex-col justify-between items-center pb-5 flex-grow p-1 text-center",
         };
       case 'left':
         return {
-          colorBar: "h-5 w-full",
-          content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
+          colorBar: "w-4 h-full absolute left-0",
+          content: "flex flex-col justify-between items-center pl-5 flex-grow p-1 text-center",
         };
       default:
         return {
-          colorBar: "h-5 w-full",
+          colorBar: "h-4 w-full",
           content: "flex flex-col justify-between items-center flex-grow p-1 text-center",
         };
     }
@@ -66,15 +66,15 @@ const PropertySpace: React.FC<PropertySpaceProps> = ({
 
   const styles = getOrientationStyles();
   
-  // Improved text size for better readability
-  const textSizeClass = isMobile ? 'text-[0.7rem] leading-tight' : 'text-xs';
+  // Reduced text size for better mobile fit
+  const textSizeClass = isMobile ? 'text-[0.6rem] leading-none' : 'text-xs';
 
   return (
-    <div className={cn("border border-black bg-white overflow-hidden", className)}>
-      <div className="flex flex-col h-full">
+    <div className={cn("border border-black bg-white overflow-hidden relative", className)}>
+      <div className="flex flex-col h-full w-full">
         <div className={cn(colorClass, styles.colorBar)}></div>
         <div className={styles.content}>
-          <div className={cn("font-bold break-words", textSizeClass)}>{name}</div>
+          <div className={cn("font-bold break-words max-w-full", textSizeClass)}>{name}</div>
           {price && <div className={textSizeClass}>{price}</div>}
         </div>
       </div>
